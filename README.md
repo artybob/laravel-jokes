@@ -21,8 +21,16 @@
 
 ### 3. Счетчик посещений
 - Клиентский скрипт для сбора данных tracker.js (IP, город, устройство, браузер). Тестировать в (http://localhost:8080/test-tracker.html) 
-- Страница статистики (http://localhost:8080/statistics) с графиками (почасовые посещения, разбивка по городам)
+- Страница статистики (login: admin pass: secret123) (http://localhost:8080/statistics) с графиками (почасовые посещения, разбивка по городам)
 - Бэкенд для хранения статистики в БД
+
+### Добавить посещение (если нужно для теста)
+
+```bash
+curl -X POST http://localhost:8080/api/track \
+-H "Content-Type: application/json" \
+-d '{"visitor_id":"test-'$(date +%s)'","device_type":"mobile","browser":"Safari","os":"iOS","city":"Saint Petersburg","country":"Russia"}'
+```
 
 ## Установка
 

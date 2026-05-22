@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StatisticsController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/statistics', [App\Http\Controllers\StatisticsController::class, 'dashboard']);
+Route::get('/statistics', [StatisticsController::class, 'dashboard'])
+    ->middleware('basic.auth');
